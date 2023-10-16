@@ -1,14 +1,13 @@
- import {row, col} from './utilus'
+ import {row, col, css} from './utilus'
  
  function title(block){
-    const tag = block.options.tag ?? 'h1' ;
-    const styles = block.options.styles;
+    const { tag = 'h1', styles} =  block.options 
 
-return row(col(` <${tag}>${block.value}</${tag}>`))
+return row(col(`<${tag}>${block.value}</${tag}>`), css(styles)   )
 }
     
-     function text(block){
-        return row(col(` <p>${block.value}</p>`))
+     function text(block){  
+        return row(col(` <p>${block.value}</p>`),css(block.options.styles))
     }
     
      function columns (block){
@@ -19,7 +18,7 @@ return row(col(` <${tag}>${block.value}</${tag}>`))
     }
     
      function image(block){
-        return row( `<img src ="${block.value}" />`)
+        return row( `<img src ="${block.value}" />`, css(block.options.styles))
        
     }
 

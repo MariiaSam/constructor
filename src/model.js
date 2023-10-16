@@ -1,14 +1,46 @@
 import image from './assents/image.png'
 
 export const model = [
-    { type: 'title', value: 'Конструктор сайтів на чистім js???' , options: {
+    { type: 'title', value: 'Конструктор сайтів на чистом js???' , 
+    options: {
        tag: 'h2',
-       styles: 'background: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)"; color: #fff";'
-    } },
+       styles: {
+        background: 'linear-gradient(to right, #ff0099, #493240)',
+         color: '#fff', 
+         'text-align': 'center',
+          padding: '1.5rem'
+        }
+    }},
   
-    { type: 'text', value: 'here we go some text' },
+{type:
+  'image', value: image,
+   options: {
+  styles: {
+    padding: '2rem 0',
+    display: 'flex',
+    'justify-content': 'center'
+  }}},
+
   
-    { type: 'columns', value: ['111111111', '22222222', '333333333'] },
-    {type: 'image', value: image}
-  ];
+    { type: 'columns', value:[
+      'Приложение на чистом JavaScript, без использования библиотек',
+      'Узнаешь как работают принципы SOLID и ООП в JavaScript за один курс',
+      'JavaScript - это просто, интересно. Научись создавать любые UI своими руками'
+    ], options: {
+      styles: {
+        background: 'linear-gradient(to bottom, #8e2de2, #4a00e0)',
+        padding: '2rem',
+        color: '#fff',
+        'font-weight': 'bold'
+      }}},
+  
+      {type: "text", value: Text, options: {
+        styles: {
+          background: 'linear-gradient(to bottom, #8e2de2, #4a00e0)',
+          padding: '1rem',
+          'font-weight': 'bold'
+        }
+      }
+  },
+  ]
   
