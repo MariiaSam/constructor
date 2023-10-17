@@ -1,60 +1,55 @@
 import {col, css, row} from '../utilus'
 
- class Block{
-constructor(type, value, options) {
-    this.value = value
-    this.options = options
-}
-toHTML (){
-    throw new Error('метод повинен ьути реалізованим')
-}
-}
-
-
-export class TitleBlock extends Block{
-    constructor(value, options){
-    super('title', value, options)
+class Block {
+    constructor(value, options) {
+      this.value = value
+      this.options = options
     }
-    toHTML(){
-        const { tag = 'h1', styles } = this.options;
-
-  return row(col(`<${tag}>${this.value}</${tag}>`), css(styles));
-
+  
+    toHTML() {
+      throw new Error('Метод toHTML должен быть реализован')
     }
-    toHTML (){
-        return row(col(`<p>${block.value}</p>`), css(block.options.styles));
+  }
+  
+  export class TitleBlock extends Block {
+    constructor(value, options) {
+      super(value, options)
     }
-
-} 
-
-
-export class ImageBlock extends Block{
-    constructor(value, options){
-    super('image', value, options)
+  
+    toHTML() {
+      const {tag = 'h1', styles} = this.options
+      return row(col(`<${tag}>${this.value}</${tag}>`), css(styles))
     }
-    toHTML (){
-        const {imageStyles: is, alt = '', styles} = this.options
-        return row(`<img src ="${this.value}" alt ="${alt}" style="${css(is)}"/>`, css(styles));
-          }
-} 
-
-export class ColumnsBlock extends Block{
-    constructor(value, options){
-    super(value, options)
+  }
+  
+  export class ImageBlock extends Block {
+    constructor(value, options) {
+      super(value, options)
     }
-    toHTML (){
-        const html = this.value.map(col).join('');
-
-        return row(html, css(this.options.styles));
-          }
-} 
-
-export class TextBlock extends Block{
-    constructor(value, options){
-    super(value, options)
+  
+    toHTML() {
+      const {imageStyles: is, alt = '', styles} = this.options
+      return row(`<img src="${this.value}" alt="${alt}" style="${css(is)}" />`, css(styles))
     }
-    toHTML (){
-        return row(col(`<p>${this.value}</p>`), css(this.options.styles));
-
+  }
+  
+  export class ColumnsBlock extends Block {
+    constructor(value, options) {
+      super(value, options)
     }
-} 
+  
+    toHTML() {
+      const html = this.value.map(col).join('')
+      return row(html, css(this.options.styles))
+    }
+  }
+  
+  export class TextBlock extends Block {
+    constructor(value, options) {
+      super(value, options)
+    }
+  
+    toHTML() {
+      return row(col(`<p>${this.value}</p>`), css(this.options.styles))
+    }
+  }
