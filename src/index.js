@@ -6,6 +6,9 @@ import './css/main.css'
 
 
  const key = 'title'
+
+
+
 //  console.log(templates[key])
 
 model.forEach(block => {

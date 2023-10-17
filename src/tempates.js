@@ -1,30 +1,29 @@
- import {row, col, css} from './utilus'
- 
- function title(block){
-    const { tag = 'h1', styles} =  block.options 
+import { row, col, css } from './utilus';
 
-return row(col(`<${tag}>${block.value}</${tag}>`), css(styles)   )
-}
-    
-     function text(block){  
-        return row(col(` <p>${block.value}</p>`),css(block.options.styles))
-    }
-    
-     function columns (block){
-      
-    const html = block.value.map(col).join('')
-    
-        return row(html)
-    }
-    
-     function image(block){
-        return row( `<img src ="${block.value}" />`, css(block.options.styles))
-       
-    }
+function title(block) {
+  const { tag = 'h1', styles } = block.options;
 
-  export  const templates = {
-    title,
-    text ,
-    image,
-    columns
+  return row(col(`<${tag}>${block.value}</${tag}>`), css(styles));
 }
+
+function text(block) {
+  return row(col(`<p>${block.value}</p>`), css(block.options.styles));
+}
+
+function columns(block) {
+  const html = block.value.map(col).join('');
+
+  return row(html);
+}
+
+function image(block) {
+    const {imageStyles: is, alt = '', styles} = block.options
+  return row(`<img src ="${block.value}" alt ="${alt}" style="${css(is)}"/>`, css(styles));
+}
+
+export const templates = {
+  title,
+  text,
+  image,
+  columns,
+};
