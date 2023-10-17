@@ -1,7 +1,7 @@
 import image from './assents/image.png';
 import { TextBlock, TitleBlock, ImageBlock, ColumnsBlock } from './classes/blocks';
  
-
+ 
 export const model = [
   new TitleBlock('Конструктор сайтов на чистом JavaScript', {
     tag: 'h2',
