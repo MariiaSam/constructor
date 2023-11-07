@@ -1,9 +1,12 @@
-import image from './assents/image.png';
-import { TextBlock, TitleBlock, ImageBlock, ColumnsBlock } from './classes/blocks';
- 
- 
+import image from './assets/image.png'
+import {TextBlock, TitleBlock, ColumnsBlock, ImageBlock} from './classes/blocks'
+
+const text = `
+мій профіль <a href="https://github.com/MariiaSam/" target="_blank">Марія Самодурова</a>. Не соромся, заходь, пропонуй мені оффер!!!)))
+`
+
 export const model = [
-  new TitleBlock('Конструктор сайтов на чистом JavaScript', {
+  new TitleBlock('Конструктор Сайтів на чистому JavaScript', {
     tag: 'h2',
     styles: {
       background: 'linear-gradient(to right, #ff0099, #493240)',
@@ -25,9 +28,7 @@ export const model = [
     alt: 'Это картинка'
   }),
   new ColumnsBlock([
-    'Приложение на чистом JavaScript, без использования библиотек',
-    'Узнаешь как работают принципы SOLID и ООП в JavaScript за один курс',
-    'JavaScript - это просто, интересно. Научись создавать любые UI своими руками'
+    'Апп на чистому JavaScript, без використання бібліотек',
   ], {
     styles: {
       background: 'linear-gradient(to bottom, #8e2de2, #4a00e0)',
